@@ -13,10 +13,12 @@ pipeline {
                 echo 'Groovy started..'
             }
         }
-        stage('Checkout') {
+        stage('Change Directory') {
             steps {
-                // Clone the repository containing your Groovy and Node.js scripts
-                git url: 'https://github.com/dilhash/sit737-trackandstock-QA.git', branch: 'main', credentialsId: 'fef8b848-bd77-4055-8263-a219450464b9'
+                 // Change to the specific directory
+                dir('/Users/dilumbal/Desktop/Gemini/sit737-trackandstock-QA') {
+                    echo "Changed directory to /Users/dilumbal/Desktop/Gemini/sit737-trackandstock-QA"
+               
             }
         }
         stage('Install Dependencies') {
