@@ -7,6 +7,12 @@ pipeline {
     }
 
     stages {
+
+        stage('Start') {
+            steps {
+                echo 'Groovy started..'
+            }
+        }
         stage('Checkout') {
             steps {
                 // Clone the repository containing your Groovy and Node.js scripts
