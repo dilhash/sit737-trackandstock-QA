@@ -20,6 +20,7 @@ pipeline {
                     echo "Changed directory to /Users/dilumbal/Desktop/Gemini/sit737-trackandstock-QA"
                
             }
+            }
         }
         stage('Install Dependencies') {
             steps {
