@@ -6,48 +6,47 @@ pipeline {
         MONGODB_URI = credentials('MONGODB_URI')
     }
 
-    stages {
+    tools {
+        // Specify the NodeJS tool name configured in Global Tool Configuration
+        nodejs 'NodeJS 14'
+    }
 
+    stages {
         stage('Start') {
             steps {
                 echo 'Groovy started..'
             }
         }
-        stage('Change Directory') {
-            steps {
-                 // Change to the specific directory
-                dir('/Users/dilumbal/Desktop/Gemini/sit737-trackandstock-QA') {
-                    echo "Changed directory to /Users/dilumbal/Desktop/Gemini/sit737-trackandstock-QA"
-               
-            }
-            }
-        }
-        // stage('Install Dependencies') {
+        // stage('Checkout') {
         //     steps {
-        //         // Install npm dependencies
-        //         //sh 'npm install'
+        //         // Clone the repository containing your Groovy and Node.js scripts
+        //         git url: 'https://github.com/dilhash/sit737-trackandstock-QA.git', branch: 'master', credentialsId: 'your-credentials-id'
         //     }
         // }
+        stage('Install Dependencies') {
+            steps {
+                dir('/Users/dilumbal/Desktop/Gemini/sit737-trackandstock-QA') {
+                    sh 'npm install'
+                }
+            }
+        }
         stage('Backup Data') {
             steps {
-                script {
-                    // Run the backupData.js script
+                dir('/Users/dilumbal/Desktop/Gemini/sit737-trackandstock-QA') {
                     sh 'node backupData.js'
                 }
             }
         }
         stage('Delete Data') {
             steps {
-                script {
-                    // Run the deleteData.js script
+                dir('/Users/dilumbal/Desktop/Gemini/sit737-trackandstock-QA') {
                     sh 'node deleteData.js'
                 }
             }
         }
         stage('Insert Data') {
             steps {
-                script {
-                    // Run the insertData.js script
+                dir('/Users/dilumbal/Desktop/Gemini/sit737-trackandstock-QA') {
                     sh 'node insertData.js'
                 }
             }
