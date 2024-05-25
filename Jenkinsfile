@@ -25,7 +25,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 // Install npm dependencies
-                sh 'npm install'
+                //sh 'npm install'
             }
         }
         stage('Backup Data') {
