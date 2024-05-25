@@ -17,36 +17,36 @@ pipeline {
                 echo 'Groovy started..'
             }
         }
-        // stage('Checkout') {
-        //     steps {
-        //         // Clone the repository containing your Groovy and Node.js scripts
-        //         git url: 'https://github.com/dilhash/sit737-trackandstock-QA.git', branch: 'master', credentialsId: 'your-credentials-id'
-        //     }
-        // }
+        stage('Checkout') {
+            steps {
+                // Clone the repository containing your Groovy and Node.js scripts
+                git url: 'https://github.com/dilhash/sit737-trackandstock-QA.git', branch: 'master', credentialsId: 'your-credentials-id'
+            }
+        }
         stage('Install Dependencies') {
             steps {
-                dir('/Users/dilumbal/Desktop/Gemini/sit737-trackandstock-QA') {
+                dir('sit737-trackandstock-QA') { // Assuming the repo is cloned to this directory within the workspace
                     sh 'npm install'
                 }
             }
         }
         stage('Backup Data') {
             steps {
-                dir('/Users/dilumbal/Desktop/Gemini/sit737-trackandstock-QA') {
+                dir('sit737-trackandstock-QA') { // Assuming the repo is cloned to this directory within the workspace
                     sh 'node backupData.js'
                 }
             }
         }
         stage('Delete Data') {
             steps {
-                dir('/Users/dilumbal/Desktop/Gemini/sit737-trackandstock-QA') {
+                dir('sit737-trackandstock-QA') { // Assuming the repo is cloned to this directory within the workspace
                     sh 'node deleteData.js'
                 }
             }
         }
         stage('Insert Data') {
             steps {
-                dir('/Users/dilumbal/Desktop/Gemini/sit737-trackandstock-QA') {
+                dir('sit737-trackandstock-QA') { // Assuming the repo is cloned to this directory within the workspace
                     sh 'node insertData.js'
                 }
             }
