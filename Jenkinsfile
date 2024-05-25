@@ -16,7 +16,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Clone the repository containing your Groovy and Node.js scripts
-                git 'https://github.com/dilhash/sit737-trackandstock-QA.git'
+                git url: 'https://github.com/dilhash/sit737-trackandstock-QA.git', branch: 'main', credentialsId: 'fef8b848-bd77-4055-8263-a219450464b9'
             }
         }
         stage('Install Dependencies') {
