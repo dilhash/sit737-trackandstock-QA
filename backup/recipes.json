@@ -1,0 +1,46 @@
+[
+  {
+    "_id": "665175591eab46d550c35387",
+    "recipeName": "Pancakes",
+    "ingredients": [
+      {
+        "item": "Flour",
+        "quantity": 1,
+        "unit": "cup"
+      },
+      {
+        "item": "Milk",
+        "quantity": 1,
+        "unit": "cup"
+      },
+      {
+        "item": "Egg",
+        "quantity": 1,
+        "unit": "piece"
+      }
+    ],
+    "instructions": "Mix ingredients and cook on a skillet."
+  },
+  {
+    "_id": "66517570abd7369e57860a60",
+    "recipeName": "Pancakes",
+    "ingredients": [
+      {
+        "item": "Flour",
+        "quantity": 1,
+        "unit": "cup"
+      },
+      {
+        "item": "Milk",
+        "quantity": 1,
+        "unit": "cup"
+      },
+      {
+        "item": "Egg",
+        "quantity": 1,
+        "unit": "piece"
+      }
+    ],
+    "instructions": "Mix ingredients and cook on a skillet."
+  }
+]
